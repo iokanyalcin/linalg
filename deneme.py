@@ -10,13 +10,18 @@ class Person:
         return '{} {}'.format(self.firstname,self.lastname) 
     
 class Student(Person):
-    pass
-x = Person("okan","yalcin")
-print(x.show_name())
-print(x)
-print(x.age)
-y = Student("okan1","yalcin1")
-print(y.firstname)
-print(y.lastname)
-print(y.show_name())
+    #When you define __init__ for child class python overrides original __init__ 
+    def __init__(self,student_name,student_lname,age,school):
+        super().__init__(student_name,student_lname)
+        self.age = age
+        self.school = school
+    def __str__(self):
+        return "Name: {} Lastname: {} \nAge: {} School: {}".format(self.firstname,self.lastname,self.age,self.school)
+        
+        
+        
+
+
+
+y = Student("Okan","Yalcin",24,"Hitite University")
 print(y)
