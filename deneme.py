@@ -23,10 +23,3 @@ class Student(Person):
         return "Name: {} Lastname: {} \nAge: {} School: {}".format(self.firstname,self.lastname,self.age,self.school)
         
         
-        
-
-
-
-y = Student("Okn","Yal",24,"University")
-
-Person.info(1,2)
