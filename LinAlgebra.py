@@ -10,13 +10,29 @@ class LinearAlgebra:
         """
         Computes the linear combination of vectors
         param: c -- constants
-        param: vectors, a numpy array includes all vectors
+        param: vectors, a numpy array includes all vectors, shape (1, Number of Vectors)
+        eg. np.array([[1,2],[3,4]])
+
         """
 
-        assert type(c) == list, "constants must be stored in a list"
-        assert type(vectors) == list, "vectors must be stored in a list" 
+        assert type(c) == np.ndarray , "constants must be stored in a numpy array"
+        assert type(vectors) == np.ndarray, "vectors must be stored in a numpy array"
+        
+        if len(vectors.shape) == 1:
+            #If outter dim of vector not satisfied expand dimension
+            vectors = np.expand_dims(vectors,axis = 0)
+            
+
+        #Expand dimension
+        constraints = [len(c) == len(vectors[0]),vectors.shape[1] == len(c)]
+        
+        if all(constraints) == True:
+            return np.sum(np.multiply(vectors.T,c),axis = 0)
+            
 
         
+
+
 
         
     @classmethod
@@ -33,5 +49,6 @@ class LinearAlgebra:
         
 
             
-LinearAlgebra.help()
-LinearAlgebra.linear_combination([1],[2])
+
+combination = LinearAlgebra.linear_combination(np.array([[1,2],[3,4],[5,6]]),np.array([2,3,4]))
+print(type(combination))
