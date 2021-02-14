@@ -6,6 +6,10 @@ class Person:
     def show_name(self):
         return '{} {}'.format(self.firstname,self.lastname)
 
+    @classmethod
+    def info(cls,x,y):
+        print("This is an OOP test script for LinAlg module.")
+
     def __str__(self):
         return '{} {}'.format(self.firstname,self.lastname) 
     
@@ -23,5 +27,6 @@ class Student(Person):
 
 
 
-y = Student("Okan","Yalcin",24,"Hitite University")
-print(y)
+y = Student("Okn","Yal",24,"University")
+
+Person.info(1,2)
