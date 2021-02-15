@@ -8,10 +8,14 @@ class Vector:
         self.y = self.j * y
         self.vector = self.x+self.y
 
+    def vec_sum(self,other):
+        """Perfrom elementwise sum of two vectors"""
+        return Vector(self.x+other.x,self.y+other.y)
     def __repr__(self):
-        return "{}".format(self.vector)
+        return "vector({})".format(self.vector)
 
     
 
-vec = Vector(5,6)
-print(vec)
+vec1 = Vector(5,6)
+vec2 = Vector(10,4)
+print(vec1.vec_sum(vec2))
