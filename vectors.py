@@ -9,8 +9,14 @@ class Vector:
         self.vector = self.x+self.y
 
     def vec_sum(self,other):
-        """Perfrom elementwise sum of two vectors"""
-        return Vector(self.x+other.x,self.y+other.y)
+        """
+        Perfrom elementwise sum of two vectors
+        param other -- Vector object
+        """
+        if isinstance(other,Vector):
+            return Vector(self.x+other.x,self.y+other.y)
+        else: 
+            raise "Given object is not Vector instance"
     def __repr__(self):
         return "vector({})".format(self.vector)
 
