@@ -1,6 +1,15 @@
 import numpy as np
-
-
+class Algebra:
+    
+    #TODO: Fix linear combination
+    
+    @classmethod
+    def linear_combination(cls,constants,vectors):
+        """
+        params: constants -- numpy object np.array([1,2,3])
+        params: vectors --- array of Vector.vector objects np.array([Vector.vector,Vector.vector])
+        """
+        return np.sum(np.multiply(vectors.T,c),axis = 0)
 
 class Vector:
     def __init__(self,x,y):
@@ -22,9 +31,9 @@ class Vector:
         else: 
             raise "Given object is not Vector instance"
     
+
     def __mul__(self,other):
         return self.vector*other
-    
     def __rmul__(self,other):
         return self.__mul__(other)
     def __repr__(self):
@@ -32,7 +41,8 @@ class Vector:
 
 
 
-print(5*Vector(1,2))
-
+x = np.array([Vector(1,2).vector,Vector(5,6).vector])
+c = np.array([1,2])
+print(Algebra.linear_combination(c,x))
 
 
