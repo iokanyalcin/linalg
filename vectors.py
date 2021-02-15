@@ -1,4 +1,7 @@
 import numpy as np
+
+
+
 class Vector:
     def __init__(self,x,y):
         #Unit vectors  i an j
@@ -7,6 +10,7 @@ class Vector:
         self.x = self.i * x
         self.y = self.j * y
         self.vector = self.x+self.y
+        
 
     def vec_sum(self,other):
         """
@@ -17,11 +21,18 @@ class Vector:
             return Vector(self.x+other.x,self.y+other.y)
         else: 
             raise "Given object is not Vector instance"
+    
+    def __mul__(self,other):
+        return self.vector*other
+    
+    def __rmul__(self,other):
+        return self.__mul__(other)
     def __repr__(self):
         return "vector({})".format(self.vector)
 
-    
 
-vec1 = Vector(5,6)
-vec2 = Vector(10,4)
-print(vec1.vec_sum(vec2))
+
+print(5*Vector(1,2))
+
+
+
